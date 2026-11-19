@@ -8,23 +8,26 @@ import java.util.Locale;
 public class Alert implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    public String region, type, message;
+    public String region, type, severity, message;
     public long time;
 
-    public Alert(String region, String type, String message) {
+    public Alert(String region, String type, String severity, String message) {
         this.region = region;
         this.type = type;
+        this.severity = severity;
         this.message = message;
         this.time = System.currentTimeMillis();
     }
 
-    public String getRegion()  { return region; }
-    public String getType()    { return type; }
-    public String getMessage() { return message; }
+    public String getRegion()   { return region; }
+    public String getType()     { return type; }
+    public String getSeverity() { return severity == null ? "" : severity; }
+    public String getMessage()  { return message; }
 
     @Override
     public String toString() {
         SimpleDateFormat f = new SimpleDateFormat("dd MMM HH:mm", Locale.US);
-        return f.format(new Date(time)) + "   " + type + " - " + region + "\n" + message;
+        return f.format(new Date(time)) + "   " + getSeverity() + " " + type
+                + " - " + region + "\n" + message;
     }
 }

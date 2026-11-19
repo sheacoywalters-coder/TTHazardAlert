@@ -1,3 +1,27 @@
 <resources>
     <string name="app_name">TT Hazard Alert</string>
+
+    <string-array name="regions">
+        <item>Chaguanas</item>
+        <item>Port of Spain</item>
+        <item>San Fernando</item>
+        <item>Arima</item>
+        <item>Couva</item>
+        <item>Sangre Grande</item>
+        <item>Tobago</item>
+    </string-array>
+
+    <string-array name="hazard_types">
+        <item>Flood</item>
+        <item>Earthquake</item>
+        <item>Landslide</item>
+        <item>Fire</item>
+        <item>Tsunami</item>
+    </string-array>
+    <string-array name="severity_levels">
+        <item>Advisory</item>
+        <item>Watch</item>
+        <item>Warning</item>
+        <item>Severe</item>
+    </string-array>
 </resources>

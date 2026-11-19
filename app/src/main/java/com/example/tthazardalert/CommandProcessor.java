@@ -51,7 +51,7 @@ public class CommandProcessor {
                     for (int i = ds.alerts.size() - 1; i >= 0; i--) {
                         Alert a = ds.alerts.get(i);
                         if (a.getRegion().equalsIgnoreCase(s.getRegion())) {
-                            reply = "Latest (" + a.getType() + "): " + a.getMessage();
+                            reply = "Latest (" + a.getSeverity() + " " + a.getType() + "): " + a.getMessage();
                             break;
                         }
                     }
