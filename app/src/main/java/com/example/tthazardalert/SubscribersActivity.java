@@ -63,7 +63,7 @@ public class SubscribersActivity extends AppCompatActivity {
         String region = addRegionSpinner.getSelectedItem().toString();
 
         DataStore ds = DataStore.get();
-        ds.subscribers.removeIf(x -> x.getPhone().equals(phone));
+        ds.subscribers.removeIf(x -> DataStore.samePhone(x.getPhone(), phone));
         ds.subscribers.add(new Subscriber(phone, region));
         ds.save(this);
 

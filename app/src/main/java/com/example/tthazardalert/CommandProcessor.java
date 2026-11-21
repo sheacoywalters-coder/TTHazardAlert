@@ -20,7 +20,7 @@ public class CommandProcessor {
                     reply = "Use: SUBSCRIBE <REGION>";
                     break;
                 }
-                ds.subscribers.removeIf(x -> x.getPhone().equals(from));
+                ds.subscribers.removeIf(x -> DataStore.samePhone(x.getPhone(), from));
                 ds.subscribers.add(new Subscriber(from, region));
                 reply = "Subscribed to hazard alerts for " + region + ". Text HELP for commands.";
                 break;

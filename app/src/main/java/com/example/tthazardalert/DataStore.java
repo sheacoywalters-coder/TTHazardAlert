@@ -29,9 +29,17 @@ public class DataStore {
         if (!loaded) load(context);
     }
 
+    public static boolean samePhone(String a, String b) {
+        if (a == null || b == null) return false;
+        String x = a.replaceAll("\\D", "");
+        String y = b.replaceAll("\\D", "");
+        if (x.isEmpty() || y.isEmpty()) return false;
+        int n = Math.min(7, Math.min(x.length(), y.length()));
+        return x.substring(x.length() - n).equals(y.substring(y.length() - n));
+    }
     public Subscriber find(String phone) {
         for (Subscriber s : subscribers) {
-            if (s.getPhone().equals(phone)) return s;
+            if (samePhone(s.getPhone(), phone)) return s;
         }
         return null;
     }
